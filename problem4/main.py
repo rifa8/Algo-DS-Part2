@@ -1,6 +1,10 @@
 def count_item_and_sort(items):
-    result = ""
-    return result
+    data = {}
+    for el in items:
+        data[el] = items.count(el)
+    sorted_data = dict(sorted(data.items(), key=lambda value: (value[1], value[0])))
+    return ' '.join([f"{key}->{value}" for key, value in sorted_data.items()])
+
 
 if __name__ == "__main__":
     print(count_item_and_sort(["js", "js", "golang", "ruby", "ruby", "js", "js"]))
